@@ -6,10 +6,7 @@ typedef struct {
     char *key;
     char *value;
 } dirNode;
-typedef struct header {
-    dirNode *data;
-    struct header *next;
-} header;
+
 typedef struct body {
     dirNode *data;
     struct body *next;
@@ -19,14 +16,23 @@ typedef struct {
     body *tail;
     int size;
 } bodyList;
+
+typedef struct header {
+    dirNode *data;
+    struct header *next;
+} header;
 typedef struct {
     header *head;
     header *tail;
     int size;
 } headerList;
 void defineDirNode(dirNode *dirnode, char *key, char *value) {
-    dirnode->key = key;
-    dirnode->value = value;
+    char *keyNew = (char *)malloc(strlen(key) + 1);
+    strcpy(keyNew, key);
+    char *valueNew = (char *)malloc(strlen(value) + 1);
+    strcpy(valueNew, value);
+    dirnode->key = keyNew;
+    dirnode->value = valueNew;
 }
 void turnDirNodeToHeader(header *node, dirNode data) {
     node->data = (dirNode *)malloc(sizeof(dirNode));
