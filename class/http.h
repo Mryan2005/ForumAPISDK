@@ -8,10 +8,10 @@ void createAHeaderItem(headerList *headerList, char *key, char *value) {
     turnDirNodeToHeader(&header_, data);
     addHeader(headerList, &header_);
 }
-void createABodyItem(headerList *headerList, char *key, char *value) {
+void createABodyItem(bodyList *bodyList, char *key, char *value) {
     dirNode data;
-    header header_;
+    body header_;
     defineDirNode(&data, key, value);
-    turnDirNodeToHeader(&header_, data);
-    addHeader(headerList, &header_);
+    turnDirNodeToBody(&header_, data);
+    addBody(bodyList, &header_);
 }
