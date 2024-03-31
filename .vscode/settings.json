@@ -2,6 +2,7 @@
     "files.associations": {
         "header.h": "c",
         "xstring": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "http.h": "c"
     }
 }
